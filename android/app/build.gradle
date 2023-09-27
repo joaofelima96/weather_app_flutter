@@ -49,6 +49,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        testInstrumentationRunnerArguments clearPackageData: 'true', timeoutInMs: '3600000'
     }
 
     buildTypes {
