@@ -103,8 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const SizedBox(width: 8),
                                 Image.network(
                                   "https://www.countryflagicons.com/FLAT/64/${state.weather.country}.png",
-                                  width: 20,
-                                  height: 20,
+                                  width: 25,
+                                  height: 25,
                                 ),
                               ],
                             ),
