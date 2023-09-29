@@ -92,11 +92,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              "📍 ${state.weather.areaName}",
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w300),
+                            Row(
+                              children: [
+                                Text(
+                                  "📍 ${state.weather.areaName}",
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w300),
+                                ),
+                                const SizedBox(width: 8),
+                                Image.network(
+                                  "https://www.countryflagicons.com/FLAT/64/${state.weather.country}.png",
+                                  width: 20,
+                                  height: 20,
+                                ),
+                              ],
                             ),
                             const SizedBox(
                               height: 8,
