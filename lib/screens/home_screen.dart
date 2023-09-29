@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             const SystemUiOverlayStyle(statusBarBrightness: Brightness.dark),
       ),
       body: Padding(
-          padding: const EdgeInsets.fromLTRB(40, 1.2 * kToolbarHeight, 40, 20),
+          padding: const EdgeInsets.fromLTRB(30, 1.2 * kToolbarHeight, 30, 20),
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Stack(children: [
@@ -118,7 +118,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold),
                             ),
-                            getWeatherIcon(state.weather.weatherConditionCode!),
+                            SizedBox(
+                                height: 300,
+                                width: 400,
+                                child: Center(
+                                    child: getWeatherIcon(
+                                        state.weather.weatherConditionCode!))),
+                            // getWeatherIcon(state.weather.weatherConditionCode!),
                             Center(
                               child: Text(
                                 "${state.weather.temperature!.celsius!.round()}ºC",
@@ -153,7 +159,102 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             const SizedBox(
-                              height: 30,
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      "assets/umidade.png",
+                                      scale: 12,
+                                    ),
+                                    const SizedBox(width: 2),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const Text(
+                                          "Humdity",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w300),
+                                        ),
+                                        const SizedBox(height: 3),
+                                        Text(
+                                          "${state.weather.humidity?.round()}%",
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      "assets/pressure.png",
+                                      scale: 12,
+                                    ),
+                                    const SizedBox(width: 2),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const Text(
+                                          "Pressure",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w300),
+                                        ),
+                                        const SizedBox(height: 3),
+                                        Text(
+                                          "${state.weather.pressure?.round()}hPa",
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      "assets/sensation.png",
+                                      scale: 12,
+                                    ),
+                                    const SizedBox(width: 2),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const Text(
+                                          "Thermal \nsensation",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w300),
+                                        ),
+                                        const SizedBox(height: 3),
+                                        Text(
+                                          "${state.weather.tempFeelsLike!.celsius!.round()}ºC",
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(bottom: 68.0),
+                              child: Divider(
+                                color: Colors.grey,
+                              ),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -232,36 +333,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Row(
                                   children: [
                                     Image.asset(
-                                      "assets/13.png",
-                                      scale: 8,
-                                    ),
-                                    const SizedBox(width: 5),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const Text(
-                                          "Temp Max",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.w300),
-                                        ),
-                                        const SizedBox(height: 3),
-                                        Text(
-                                          "${state.weather.tempMax!.celsius!.round()}ºC",
-                                          style: const TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.w700),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Image.asset(
                                       "assets/14.png",
-                                      scale: 8,
+                                      scale: 10,
                                     ),
                                     const SizedBox(width: 5),
                                     Column(
@@ -285,8 +358,36 @@ class _HomeScreenState extends State<HomeScreen> {
                                     )
                                   ],
                                 ),
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      "assets/13.png",
+                                      scale: 10,
+                                    ),
+                                    const SizedBox(width: 5),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const Text(
+                                          "Temp Max",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w300),
+                                        ),
+                                        const SizedBox(height: 3),
+                                        Text(
+                                          "${state.weather.tempMax!.celsius!.round()}ºC",
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w700),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ],
-                            )
+                            ),
                           ]),
                     );
                   } else {
